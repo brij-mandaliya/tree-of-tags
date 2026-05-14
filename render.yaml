@@ -2,9 +2,10 @@ services:
   - type: web
     name: django-backend
     runtime: docker
-    dockerContext: ./tree-of-tags-backend
-    dockerfilePath: ./tree-of-tags-backend/Dockerfile
+    repo: https://github.com/brij-mandaliya/tree-of-tags
     plan: free
+    region: singapore
+    dockerfilePath: ./tree-of-tags-backend/Dockerfile
     healthCheckPath: /api/
     envVars:
       - key: DATABASE_HOST
@@ -25,9 +26,10 @@ services:
   - type: web
     name: vue-frontend
     runtime: docker
-    dockerContext: ./tree-of-tags
-    dockerfilePath: ./tree-of-tags/Dockerfile
+    repo: https://github.com/brij-mandaliya/tree-of-tags
     plan: free
+    region: singapore
+    dockerfilePath: ./tree-of-tags/Dockerfile
     healthCheckPath: /
     envVars:
       - key: VITE_API_URL
@@ -35,5 +37,3 @@ services:
           name: django-backend
           type: web
           property: hostport
-
-
