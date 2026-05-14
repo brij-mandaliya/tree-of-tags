@@ -1,0 +1,11 @@
+venv/
+tree-backend/
+env/
+.env
+__pycache__/
+*.pyc
+*.pyo
+node_modules/
+dist/
+.DS_Store
+mysql-init/
