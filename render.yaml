@@ -29,7 +29,7 @@ services:
     repo: https://github.com/brij-mandaliya/tree-of-tags
     plan: free
     region: singapore
-    dockerfilePath: ./tree-of-tags/Dockerfile
+    dockerfilePath: ./tree-of-tags-frontend/Dockerfile
     healthCheckPath: /
     envVars:
       - key: VITE_API_URL

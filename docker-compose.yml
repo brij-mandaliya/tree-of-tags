@@ -36,7 +36,7 @@ services:
     restart: always
     working_dir: /app
     volumes:
-      - ./tree-of-tags:/app
+      - ./tree-of-tags-frontend:/app
     command: >
       bash -c "
         npm install &&
