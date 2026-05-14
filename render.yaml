@@ -1,0 +1,39 @@
+services:
+  - type: web
+    name: django-backend
+    runtime: docker
+    dockerContext: ./tree-of-tags-backend
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /api/
+    envVars:
+      - key: DATABASE_HOST
+        sync: false
+      - key: DATABASE_NAME
+        sync: false
+      - key: DATABASE_USER
+        sync: false
+      - key: DATABASE_PASSWORD
+        sync: false
+      - key: DATABASE_PORT
+        sync: false
+      - key: PYTHONUNBUFFERED
+        value: 1
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
+
+  - type: web
+    name: vue-frontend
+    runtime: docker
+    dockerContext: ./tree-of-tags
+    dockerfilePath: Dockerfile
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          name: django-backend
+          type: web
+          property: hostport
+
+
