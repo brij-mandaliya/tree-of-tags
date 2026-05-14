@@ -12,10 +12,10 @@ RUN apt-get update \
         pkg-config \
     && rm -rf /var/lib/apt/lists/*
 
-COPY requirements.txt /app/
+COPY tree-of-tags-backend/requirements.txt /app/
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY . /app/
+COPY tree-of-tags-backend/ /app/
 
 RUN python manage.py collectstatic --noinput || true
 
